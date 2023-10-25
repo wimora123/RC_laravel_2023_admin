@@ -29,7 +29,7 @@
                     <div class="container-fluid px-4 pt-4">
 
                         <!-- Diisi oleh file apapun -->
-                        @yield('content')
+                        @yield('konten')
 
                         <div class="row">
 
