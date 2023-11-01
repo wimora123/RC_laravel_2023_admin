@@ -40,6 +40,15 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/master', [MasterController::class, 'index'])->name('master')->middleware('auth');
 
 Route::get('/master/barang', [MasterBarangController::class, 'index'])->name('master_barang')->middleware('auth');
+Route::get('/master/barang/tambah', [MasterBarangController::class, 'create'])->name('master_barang_create')->middleware('auth');
+Route::post('/master/barang/simpan', [MasterBarangController::class, 'store'])->name('master_barang_simpan');
+
+Route::get('/master/barang/hapus/{id}',
+    [MasterBarangController::class, 'destroy'])
+    ->name('master_barang_hapus')->
+    where('id', '[0-9]+')->
+    middleware('auth');
+
 Route::get('/master/kategori', [MasterKategoriController::class, 'index'])->name('master_kategori')->middleware('auth');
 Route::get('/master/gudang', [MasterGudangController::class, 'index'])->name('master_gudang')->middleware('auth');
 

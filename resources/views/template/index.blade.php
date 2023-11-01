@@ -28,6 +28,7 @@
                 <main>
                     <div class="container-fluid px-4 pt-4">
 
+                        @include('template/pesan_kilat')
                         <!-- Diisi oleh file apapun -->
                         @yield('konten')
 

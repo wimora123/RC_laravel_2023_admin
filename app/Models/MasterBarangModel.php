@@ -13,4 +13,7 @@ class MasterBarangModel extends Model
     protected $table = 'master_barang';
     // Kita gk butuh timpestamp
     public $timestamps = false;
+
+    // Lindungi id
+    protected $guarded = ["id"];
 }
