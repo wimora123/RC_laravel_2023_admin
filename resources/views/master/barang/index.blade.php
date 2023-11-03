@@ -30,8 +30,8 @@
                 <td>{{ $brg->kode }}</td>
                 <td>{{ $brg->nama }}</td>
                 <td>{{ $brg->deskripsi }}</td>
-                <td><a class="btn btn-danger btn btn-sm btn-danger rounded-circle" onclick="return confirm('Yakin mau dihapus {{ $brg->kode }} ? ')" href="{{ route('master_barang_hapus',['id'=>$brg->id]) }}">Hapus</a></td>
-                <td><a href="" class="btn btn-success">Edit</a></td>
+                <td><a onclick="return confirm('Yakin mau dihapus {{ $brg->kode }} ? ')" href="{{ route('master_barang_hapus',['id'=>$brg->id]) }}" ><button class="btn btn-danger btn btn-md rounded-circle fa fa-trash"></button></a></td>
+                <td><a href="{{ route('master_barang_edit',['id'=>$brg->id]) }}" ><button class="btn btn-success btn btn-md rounded-circle fa fa-pencil"></button></a></td>
             </tr>
             @endforeach
         </tbody>

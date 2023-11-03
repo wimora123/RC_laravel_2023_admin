@@ -42,14 +42,15 @@ class MasterBarangController extends Controller
     public function store(Request $request)
     {
         $aturan = [
-            'kode' => 'required|min:3|max:7|alpha_dash',
+            'kode' => 'required|min:3|max:7|alpha_dash|unique:master_barang,kode',
             'barang' => 'required|min:10|max:25',
             'deskripsi' => 'required|max:255'
         ];
 
         $pesan_indo=[
             'required' => 'Wajib diisi',
-            'min' => 'Minimal :min karakter'
+            'min' => 'Minimal :min karakter',
+            'unique' => 'Kode sudah dipakai'
         ];
 
         $validator = Validator::make($request->all(), $aturan, $pesan_indo);
@@ -100,7 +101,7 @@ class MasterBarangController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -111,7 +112,10 @@ class MasterBarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $barang = MasterBarangModel::where('id', $id)->first();
+        return view('master/barang/form_edit',[
+            'barang' => $barang
+        ]);
     }
 
     /**
@@ -123,7 +127,7 @@ class MasterBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $id=$request->id;
     }
 
     /**

@@ -45,9 +45,15 @@ Route::post('/master/barang/simpan', [MasterBarangController::class, 'store'])->
 
 Route::get('/master/barang/hapus/{id}',
     [MasterBarangController::class, 'destroy'])
-    ->name('master_barang_hapus')->
-    where('id', '[0-9]+')->
-    middleware('auth');
+    ->name('master_barang_hapus')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
+Route::get('/master/barang/edit/{id}',
+    [MasterBarangController::class, 'edit'])
+    ->name('master_barang_edit')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
 
 Route::get('/master/kategori', [MasterKategoriController::class, 'index'])->name('master_kategori')->middleware('auth');
 Route::get('/master/gudang', [MasterGudangController::class, 'index'])->name('master_gudang')->middleware('auth');
